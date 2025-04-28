@@ -1,0 +1,41 @@
+<!-- Author: Akram Hossain Bhuiyan -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add Assignment</title>
+<link rel="stylesheet" href="gradecalc_styles.css">
+</head>
+<body>
+<header>
+<h1>Add Assignment</h1>
+</header>
+<main>
+<form action="classoverview.html" method="POST">
+<label for="assignment_name">Assignment Name:</label>
+<input type="text" id="assignment_name" name="assignment_name" required>
+<label for="category_type">Category Type:</label>
+<select id="category_type" name="category_type" required>
+<option value="">-- Select Category --</option>
+<option value="Homework">Homework</option>
+<option value="Exam">Exam</option>
+<option value="Quiz">Quiz</option>
+<option value="Participation">Participation</option>
+<option value="Project">Project</option>
+</select>
+<label for="score">Score:</label>
+<input type="number" id="score" name="score" min="0" step="0.1" required>
+<label for="total_points">Total Points:</label>
+<input type="number" id="total_points" name="total_points" min="1" step="0.1"
+required>
+<div class="orangebutton">
+           <button type="submit" formaction="classoverview.html" class="orangebutton">Submit Assignment</button>
+       </div>
+</form>
+
+</main>
+<footer>
+<p>&copy; 2025 Class Grade Calculator</p>
+</footer>
+</body>
+</html>

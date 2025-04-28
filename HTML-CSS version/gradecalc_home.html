@@ -1,0 +1,65 @@
+<!-- author: Sam Dolle -->
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="gradecalc_styles.css">
+	<title>Class Grade Calculator</title>
+</head>
+<body>
+	<h1>Class Grade Calculator</h1>
+	<img class="designborder" src="designborder.png" alt="border" width="1800" height="40">
+	<div class="container" >
+		<div class="brownbox">Current Student: John Smith</div>
+		<div class="orangebutton">
+			<form name="changestudent" action="changestudent.html" method="post">
+			<button type="submit" formaction="changestudent.html" class="orangebutton">Change Student </button>
+			</form>
+		</div>
+	</div>
+<table>
+    <tr>
+        <th>Class</th>
+        <th>Assignments</th>
+		<th>Quizzes</th>
+        <th>Exams</th>
+		<th>Overall</th>
+		<th>Class Overview</th>
+    </tr>
+    <tr>
+        <td>IS448</td>
+        <td>92%</td>
+		<td>81%</td>
+        <td>75%</td>
+		<td>82%</td>
+		<td><div class="orangebutton">
+			<form name="overview" action="classoverview.html" method="post">
+			<button type="submit" formaction="classoverview.html" class="orangebutton">Details -> </button>
+			</form>
+		</div></td>
+    </tr>
+    <tr>
+        <td>CMSC201</td>
+        <td>74.4%</td>
+		<td>81%</td>
+        <td>85%</td>
+		<td>82%</td>
+		<td><div class="orangebutton">
+			<form name="overview" action="classoverview.html" method="post">
+			<button type="submit" formaction="classoverview.html" class="orangebutton">Details -> </button>
+			</form>
+		</div></td>
+    </tr>
+	<tr>
+        <td><div class="orangebutton">
+			<form name="addclass" action="addclass.html" method="post">
+			<button type="submit" formaction="addclass.html" class="orangebutton">Add New Class +  </button>
+			</form>
+		</div></td>
+        <td></td>
+		<td></td>
+        <td></td>
+		<td></td>
+		<td></td>
+    </tr>
+</table>
+<img class="designborder" src="designborder2.png" alt="border2" width="1800" height="40">
+</body></html>

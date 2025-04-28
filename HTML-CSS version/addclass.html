@@ -1,0 +1,39 @@
+<!-- Author: Jordan Grimes -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <link rel="stylesheet" type="text/css" href="gradecalc_styles.css">
+   <title>Add New Class</title>
+</head>
+<body>
+   <h1>Add New Class</h1>
+   <img class="designborder" src="designborder.png" alt="border" width="1800" height="40">
+
+
+   <form name="addclassform" action="gradecalc_home.html" method="post">
+       <table>
+           <tr>
+               <th>Class Name</th>
+               <th>Assignments (%)</th>
+               <th>Quizzes (%)</th>
+               <th>Exams (%)</th>
+           </tr>
+           <tr>
+               <td><input type="text" name="classname" required></td>
+               <td><input type="number" name="assignments" min="0" max="100" required></td>
+               <td><input type="number" name="quizzes" min="0" max="100" required></td>
+               <td><input type="number" name="exams" min="0" max="100" required></td>
+           </tr>
+       </table>
+
+
+       <div class="orangebutton">
+           <button type="submit" formaction="gradecalc_home.html" class="orangebutton">Submit</button>
+       </div>
+   </form>
+
+
+   <img class="designborder" src="designborder2.png" alt="border2" width="1800" height="40">
+</body>
+</html>
