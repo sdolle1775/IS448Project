@@ -1,0 +1,19 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+$host = 'studentdb-maria.gl.umbc.edu';
+$db   = 'sdolle2';
+$user = 'sdolle2';
+$pass = 'sdolle2';
+$charset = 'utf8mb4';
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+];
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (PDOException $e) {
+    die('Database connection failed: ' . $e->getMessage());
+}
+?>
