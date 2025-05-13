@@ -38,7 +38,12 @@ Logged in as: <?= htmlspecialchars($_SESSION['username']) ?>
 </div>
 </div>
 
-<h1>Change Students</h1>
+<h1 id="header">Change Students</h1>
+    <script>
+        //Changing header style
+        document.getElementById("header").style.color = "gold";
+        document.getElementById("header").style.fontSize = "30pt";
+    </script>
 <img class="designborder" src="designborder.png" alt="border" width="1800" height="40">
 <table>
 <tr><th>Username</th><th>Email</th><th>Year</th><th>Actions</th></tr>
