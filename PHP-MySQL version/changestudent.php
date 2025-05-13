@@ -8,13 +8,27 @@ $stmt = $pdo->query('SELECT * FROM users');
 $users = $stmt->fetchAll();
 ?>
 <html>
-<head><link rel="stylesheet" href="gradecalc_styles.css"></head>
+<head>
+    <title> Changing Student </title>
+    <link rel="stylesheet" href="gradecalc_styles.css">
+    <script> 
+        //Validating form data
+        function validate(){
+            let valid1 = confirm("Are you sure you want to delete this student?");
+            return valid1;
+        }
+        function loggingout(){
+            let valid2 = confirm("Are you sure you want to LOGOUT!?!");
+            return valid2;
+        }
+    </script>
+</head>
 <body>
 <div class="container">
 <div class="brownbox">
 Logged in as: <?= htmlspecialchars($_SESSION['username']) ?>
 </div>
-<form action="logout.php" method="post">
+<form action="logout.php" method="post" onsubmit="return loggingout()">
     <button class="orangebutton" type="submit">Logout</button>
 </form>
 <div class="orangebutton" style="margin-left: auto;margin-right: 200;">
@@ -34,7 +48,7 @@ Logged in as: <?= htmlspecialchars($_SESSION['username']) ?>
 <td><?= htmlspecialchars($user['email']) ?></td>
 <td><?= htmlspecialchars($user['year']) ?></td>
 <td>
-<form method="post" action="deletestudent.php" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this student?');">
+<form name="deletestudent" method="post" action="deletestudent.php" style="display:inline;" onsubmit="return validate()">
 <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
 <button class="redbutton" type="submit">Delete</button>
 </form>
