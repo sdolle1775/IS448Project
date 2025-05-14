@@ -70,6 +70,9 @@ Logged in as: <?= htmlspecialchars($_SESSION['username']) ?>
 <?php if (empty($classes)): ?>
 <p>No classes found. Add one below!</p>
 <?php else: ?>
+<div style="text-align: center; margin-bottom: 20px;">
+    <input type="text" id="searchBox" placeholder="Search for a class..." style="width: 300px; padding: 5px;">
+</div>
 <table>
 <tr><th>Class Name</th><th>Overall Grade</th><th>Class Overview</th><th>Delete</th></tr>
 <?php foreach ($classes as $class): ?>
@@ -102,5 +105,32 @@ Logged in as: <?= htmlspecialchars($_SESSION['username']) ?>
 
 <br>
 <img class="designborder" src="designborder2.png" alt="border2" width="1800" height="40">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#searchBox').on('input', function() {
+        var query = $(this).val();
+        if (query.length < 1) {
+            $('table tr').show(); // Show all rows if query is empty
+            return;
+        }
+
+        $.get('search_classes.php', { query: query }, function(data) {
+            $('table tr').hide(); // Hide all rows first
+            $('table tr:first').show(); // Keep header visible
+
+            data.forEach(function(classItem) {
+                $('table tr').each(function(index) {
+                    if (index === 0) return; // Skip header
+                    var className = $(this).find('td:first').text();
+                    if (className === classItem.name) {
+                        $(this).show().css('background-color', 'yellow');
+                    }
+                });
+            });
+        }, 'json');
+    });
+});
+</script>
 </body>
 </html>
