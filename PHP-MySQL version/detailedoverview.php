@@ -40,6 +40,10 @@ foreach ($assignments as $assignment) {
 </div>
 </div>
 <img class="designborder" src="designborder.png" alt="border" width="1800" height="40">
+<div style="text-align: center; margin-bottom: 20px;">
+    <input type="text" id="categorySearchBox" placeholder="Search for a category..." style="width: 300px; padding: 5px;">
+</div>
+
 <h2>Percentages per Category</h2>
 <table>
 <tr><th>Category</th><th>Percentage</th></tr>
@@ -88,5 +92,31 @@ foreach ($assignments as $assignment) {
 </form>
 <br>
 <img class="designborder" src="designborder2.png" alt="border2" width="1800" height="40">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#categorySearchBox').on('input', function() {
+        var query = $(this).val().toLowerCase();
+        
+        // Search all tables that list categories
+        $('table').each(function() {
+            var table = $(this);
+            table.find('tr').each(function(index) {
+                if (index === 0) return; // Skip header row
+                var categoryName = $(this).find('td:first').text().toLowerCase();
+                if (categoryName.includes(query) && query.length > 0) {
+                    $(this).show().css('background-color', 'yellow');
+                } else {
+                    $(this).show().css('background-color', '');
+                    if (query.length > 0 && !categoryName.includes(query)) {
+                        $(this).hide();
+                    }
+                }
+            });
+        });
+    });
+});
+</script>
+
 </body>
 </html>
