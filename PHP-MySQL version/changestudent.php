@@ -25,7 +25,7 @@ $users = $stmt->fetchAll();
 </head>
 <body>
 <div class="container">
-<div class="brownbox">
+<div class="brownbox" style="margin-left: 400;margin-right: 10;">
 Logged in as: <?= htmlspecialchars($_SESSION['username']) ?>
 </div>
 <form action="logout.php" method="post" onsubmit="return loggingout()">
@@ -53,7 +53,7 @@ Logged in as: <?= htmlspecialchars($_SESSION['username']) ?>
 <td><?= htmlspecialchars($user['email']) ?></td>
 <td><?= htmlspecialchars($user['year']) ?></td>
 <td>
-<form name="deletestudent" method="post" action="deletestudent.php" style="display:inline;" onsubmit="return validate()">
+<form name="deletestudent" method="post" action="deletestudent.php" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this student?');">
 <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
 <button class="redbutton" type="submit">Delete</button>
 </form>
