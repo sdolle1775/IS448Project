@@ -53,11 +53,16 @@ function getColorClass($percent) {
 <head>
 <link rel="stylesheet" href="gradecalc_styles.css">
 <title>GradeCalc Home</title>
+
 </head>
 <body>
-<h1>Class Grade Calculator</h1>
+<h1 id="change">Class Grade Calculator</h1>
+<script>
+    document.getElementById("change").style.fontSize = "30pt";
+    document.getElementById("change").style.color = "red";
+</script>
 <div class="container" >
-<div class="brownbox">
+<div class="brownbox" style="margin-left: 400;margin-right: 10;">
 Logged in as: <?= htmlspecialchars($_SESSION['username']) ?>
 </div>
 <div class="orangebutton">
