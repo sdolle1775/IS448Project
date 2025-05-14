@@ -64,7 +64,9 @@ function getColorClass($percent) {
 </div>
 <img class="designborder" src="designborder.png" alt="border" width="1800" height="40">
 <h2>Current Overall Grade: <span <?= getColorClass($overall_percentage) ?>><?= number_format($overall_percentage, 2) ?>%</span></h2>
-
+<div style="text-align: center; margin-bottom: 20px;">
+    <input type="text" id="assignmentSearchBox" placeholder="Search for an assignment..." style="width: 300px; padding: 5px;">
+</div>
 <?php if (empty($assignments)): ?>
 <p>No assignments found for this class.</p>
 <?php else: ?>
@@ -118,5 +120,33 @@ function getColorClass($percent) {
 </div>
 <br>
 <img class="designborder" src="designborder2.png" alt="border2" width="1800" height="40">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#assignmentSearchBox').on('input', function() {
+        var query = $(this).val();
+        var classId = <?= json_encode($class_id) ?>;
+        if (query.length < 1) {
+            $('table tr').show(); // Show all if empty
+            return;
+        }
+
+        $.get('search_assignments.php', { class_id: classId, query: query }, function(data) {
+            $('table tr').hide(); // Hide all
+            $('table tr:first').show(); // Show headers
+
+            data.forEach(function(item) {
+                $('table tr').each(function() {
+                    var assignmentName = $(this).find('td:first').text();
+                    if (assignmentName === item.name) {
+                        $(this).show().css('background-color', 'yellow');
+                    }
+                });
+            });
+        }, 'json');
+    });
+});
+</script>
+
 </body>
 </html>
