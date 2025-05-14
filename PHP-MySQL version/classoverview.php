@@ -53,8 +53,12 @@ function getColorClass($percent) {
 <head><link rel="stylesheet" href="gradecalc_styles.css"></head>
 <body>
 <div class="container">
-<div style="margin-left: 700;margin-right: auto;">
-<h1>Class Overview</h1>
+<div style="margin-left: 440;margin-right: auto;">
+<h1 id="change">Class Overview</h1>
+<script>
+    document.getElementById("change").style.fontSize = "30pt";
+    document.getElementById("change").style.color = "red";
+</script>
 </div>
 <div style="margin-left: auto;margin-right: 200;">
 <form action="gradecalc_home.php" method="post">
