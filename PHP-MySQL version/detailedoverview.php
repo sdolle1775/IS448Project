@@ -30,8 +30,12 @@ foreach ($assignments as $assignment) {
 <head><link rel="stylesheet" href="gradecalc_styles.css"></head>
 <body>
 <div class="container">
-<div style="margin-left: 650;margin-right: auto;">
-<h1>Detailed Class Overview</h1>
+<div style="margin-left: 400;margin-right: auto;">
+<h1 id="change">Detailed Class Overview</h1>
+<script>
+    document.getElementById("change").style.fontSize = "30pt";
+    document.getElementById("change").style.color = "blue";
+</script>
 </div>
 <div style="margin-left: auto;margin-right: 200;">
 <form action="gradecalc_home.php" method="post">
