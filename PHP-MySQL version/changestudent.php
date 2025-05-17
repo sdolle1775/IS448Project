@@ -53,7 +53,7 @@ Logged in as: <?= htmlspecialchars($_SESSION['username']) ?>
 <td><?= htmlspecialchars($user['email']) ?></td>
 <td><?= htmlspecialchars($user['year']) ?></td>
 <td>
-<form name="deletestudent" method="post" action="deletestudent.php" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this student?');">
+<form name="deletestudent" method="post" action="deletestudent.php" style="display:inline;" onsubmit="return validate()">
 <input type="hidden" name="user_id" value="<?= $user['id'] ?>">
 <button class="redbutton" type="submit">Delete</button>
 </form>
