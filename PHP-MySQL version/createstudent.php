@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </script>
 
 <form method="post" onsubmit="return creation()">
-    Username: <input type="text" name="username" required onkeyup="check(this.value)"><br><br>
+    Username: <input type="text" name="username" pattern="[A-Za-z]{2}[0-9]{5}" required onkeyup="check(this.value)"><br><br>
     <span id="txtHint"></span><br><br>
     Password: <input type="password" name="password" required><br><br>
     Email: <input type="email" name="email" required><br><br>
